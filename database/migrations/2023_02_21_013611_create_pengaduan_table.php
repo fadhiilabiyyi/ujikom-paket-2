@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('nik');
             $table->foreign('nik')->references('nik')->on('masyarakat')->onUpdate('cascade')->onDelete('cascade');
             $table->longText('isi_laporan');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->enum('status', ['0', 'proses', 'selesai']);
             $table->timestamps();
         });
