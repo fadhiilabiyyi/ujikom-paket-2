@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Petugas;
+use App\Models\Masyarakat;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,30 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Masyarakat::create([
+            'nik' => '7471',
+            'nama' => 'masyarakat',
+            'username' => 'masyarakat',
+            'password' => Hash::make('password'),
+            'telp' => '1234'
+        ]);
+
+        Petugas::create([
+            'id_petugas' => '1',
+            'nama_petugas' => 'tamsil',
+            'username' => 'petugas',
+            'password' => Hash::make('password'),
+            'telp' => '1234',
+            'level' => 'petugas'
+        ]);
+
+        Petugas::create([
+            'id_petugas' => '2',
+            'nama_petugas' => 'tamsil',
+            'username' => 'admin',
+            'password' => Hash::make('password'),
+            'telp' => '1234',
+            'level' => 'admin'
+        ]);
     }
 }
