@@ -12,7 +12,7 @@ class Pengaduan extends Model
     use HasFactory;
     protected $primaryKey = 'id_pengaduan';
     protected $table = 'pengaduan';
-    protected $fillable = ['id_pengaduan', 'tanggal_pengaduan', 'nik', 'isi_laporan', 'foto', 'status'];
+    protected $guarded = ['id_pengaduan'];
 
     public function masyarakat()
     {
