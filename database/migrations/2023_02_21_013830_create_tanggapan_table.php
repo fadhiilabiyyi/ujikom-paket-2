@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('tanggapan', function (Blueprint $table) {
             $table->integer('id_tanggapan')->autoIncrement();
             $table->integer('id_pengaduan');
-            $table->foreign('id_pengaduan')->references('id_pengaduan')->on('pengaduan')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_pengaduan')->references('id_pengaduan')->on('pengaduan')->onUpdate('cascade')->onDelete('cascade')->constrained();
             $table->date('tanggal_tanggapan');
             $table->longText('tanggapan');
             $table->integer('id_petugas');
-            $table->foreign('id_petugas')->references('id_petugas')->on('petugas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_petugas')->references('id_petugas')->on('petugas')->onUpdate('cascade')->onDelete('cascade')->constrained();
             $table->timestamps();
         });
     }

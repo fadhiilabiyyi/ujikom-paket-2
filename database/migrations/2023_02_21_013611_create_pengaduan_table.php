@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('id_pengaduan')->autoIncrement();
             $table->date('tanggal_pengaduan');
             $table->char('nik');
-            $table->foreign('nik')->references('nik')->on('masyarakat')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('nik')->references('nik')->on('masyarakat')->onUpdate('cascade')->onDelete('cascade')->constrained();
             $table->longText('isi_laporan');
             $table->string('foto')->nullable();
             $table->enum('status', ['0', 'proses', 'selesai']);
