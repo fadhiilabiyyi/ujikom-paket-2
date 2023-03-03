@@ -16,8 +16,8 @@ class Masyarakat extends User
     protected $table = 'masyarakat';
     protected $fillable = ['nik', 'nama', 'username', 'password', 'telp'];
 
-    public function pengaduan()
+    public function pengaduans()
     {
-        return $this->hasMany(Pengaduan::class);
+        return $this->hasMany(Pengaduan::class, 'nik', 'nik');
     }
 }

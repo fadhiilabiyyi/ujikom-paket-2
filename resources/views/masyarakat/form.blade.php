@@ -7,6 +7,10 @@
     <title>Form Pengaduan</title>
     @vite('resources/css/app.css')
 
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
     <!-- Tailwind -->
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
@@ -14,17 +18,20 @@
         .font-family-karla {
             font-family: karla;
         }
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display:none;
+        }
     </style>
 </head>
 <body class="bg-white font-family-karla h-screen">
     <div class="w-full flex flex-wrap">
 
-        <!-- Login Section -->
+        <!-- Form -->
         <div class="w-full mt-10 flex flex-col">
 
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                 <p class="text-center text-3xl">Form Pengaduan Masyarakat</p>
-                <form class="flex flex-col pt-3 md:pt-8" action="{{ route('pengaduan.store') }}" method="POST">
+                <form class="flex flex-col pt-3 md:pt-8" action="{{ route('pengaduan.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex flex-col pt-4">
                         <label for="tanggal_pengaduan" class="text-lg">Tanggal Pengaduan</label>
@@ -33,7 +40,9 @@
 
                     <div class="flex flex-col pt-4">
                         <label for="isi_laporan" class="text-lg">Isi Laporan</label>
-                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" name="isi_laporan" id="isi_laporan" cols="30" rows="10"></textarea>
+                        <input id="isi_laporan" type="hidden" name="isi_laporan">
+                        <trix-editor input="isi_laporan"></trix-editor>
+                        {{-- <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" name="isi_laporan" id="isi_laporan" cols="30" rows="10"></textarea> --}}
                     </div>
 
                     <div class="flex flex-col pt-4">

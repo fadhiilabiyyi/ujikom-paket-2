@@ -19,7 +19,7 @@ class IsAdmin
         if (Auth::guard('masyarakat')->check()) {
             return abort(403);    
         }
-        if (!Auth::guard('petugas')->user()->level == 'admin') {
+        if (Auth::guard('petugas')->user()->level == 'admin') {
             return $next($request);
         }
         return abort(403);

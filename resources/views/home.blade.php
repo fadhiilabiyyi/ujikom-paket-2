@@ -25,15 +25,15 @@
             </svg> --}}
             <span class="ml-3 text-xl">Aplikasi Pengaduan</span>
           </a>
-          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center text-center">
             <a href="{{ route('home') }}" class="mr-10 hover:text-gray-900">Home</a>
-            <a href="pricing.html" class="mr-10 hover:text-gray-900">Pengaduan</a> 
+            <a href="{{ route('pengaduan') }}" class="mr-10 hover:text-gray-900">Pengaduan</a> 
           </nav>
         </div>
       </header>
 
        <!-- Hero Section -->
-       <section class="text-gray-600 body-font mx-12">
+       <section class="w-full text-gray-600 body-font mx-12">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 class="title-font sm:text-4xl text-9xl mb-4 font-bold text-gray-900">Aplikasi Pengaduan Masyarakat
@@ -42,12 +42,12 @@
             <p class="mb-8 leading-relaxed">
                 Laporkan keluhan atau aspirasi Anda. Laporan Anda akan terus ditindaklanjuti hingga terselesaikan
             </p>
-            @if (!auth()->guest('masyarakat') || !auth()->guest('petugas'))
+            @if (Auth::guard('masyarakat')->check() == false)
                 <div class="flex justify-center">
-                    <a href="">
+                    <a href="{{ route('login') }}">
                         <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Login</button>
                     </a>
-                    <a href="">
+                    <a href="{{ route('register') }}">
                         <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Register</button>
                     </a>
                 </div>

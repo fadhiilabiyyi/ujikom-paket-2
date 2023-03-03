@@ -16,7 +16,7 @@ class Petugas extends User
     protected $table = 'petugas';
     protected $fillable = ['id_petugas', 'nama_petugas', 'username', 'password', 'telp', 'level'];
 
-    public function tanggapan()
+    public function tanggapans()
     {
         return $this->hasMany(Tanggapan::class);
     }
